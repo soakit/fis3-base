@@ -15,5 +15,13 @@ fis3 base有如下功能特色。
 - 本地模拟数据
 - 开发，测试，发布等多种模式
 
-## 说明文档
-[INTRO](INTRO.md)
+## 说明
+
+- 安装npm依赖
+> npm install
+- 安装fis3组件
+> npm run install
+- 发布到本地
+> npm run release
+
+更多请见 [INTRO](INTRO.md)
