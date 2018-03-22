@@ -8,7 +8,7 @@
   },
   "scripts": {
     "install": "fis3 install",
-    "release": "fis3 release prod -c"
+    "release": "fis3 release prod-debug -c"
   },
   "repository": {
     "type": "git",

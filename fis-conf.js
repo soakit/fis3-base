@@ -149,7 +149,7 @@ var map = {
     },
     'prod-debug': {
         host: '',
-        path: ''
+        path: '/publish'
     }
 };
 
@@ -238,21 +238,22 @@ Object.keys(map)
     });
 
 // 本地产出发布
-fis.media('prod')
-    .match('**', {
-        deploy: [
-            fis.plugin('skip-packed', {
-                // 默认被打包了 js 和 css 以及被 css sprite 合并了的图片都会在这过滤掉，
-                // 但是如果这些文件满足下面的规则，则依然不过滤
-                ignore: []
-            }),
+['prod', 'prod-debug'].forEach(function(v) {
+    fis.media(v)
+        .match('**', {
+            deploy: [
+                fis.plugin('skip-packed', {
+                    // 默认被打包了 js 和 css 以及被 css sprite 合并了的图片都会在这过滤掉，
+                    // 但是如果这些文件满足下面的规则，则依然不过滤
+                    ignore: []
+                }),
 
-            fis.plugin('local-deliver', {
-                to: 'publish'
-            })
-        ]
-    });
-
+                fis.plugin('local-deliver', {
+                    to: 'publish'
+                })
+            ]
+        });
+});
 
 // 发布到指定的机器
 ['rd', 'rd-debug'].forEach(function(v) {

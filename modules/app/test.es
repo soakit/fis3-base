@@ -23,7 +23,6 @@ console.log(Data);
 
 import {guid, uuid} from 'util/guid/guid';
 
-
 var count = 10;
 while(count--) {
     console.log(guid());
